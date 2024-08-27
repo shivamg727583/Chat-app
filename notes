@@ -1,0 +1,20 @@
+WebSocket - WebSocket is a computer commnunication protocol,providing full-duplex (dono side A-> B or B->A) commnunication channels over a single TCP connection.
+
+Socket.io  -- Real time applications like chatting app.
+
+Socket.io is a JavaScript library for real-time, bi-directional communication between web clients and servers. 
+
+---->>      npm i socket.io
+---->>      const io = require('socket.io')(http);  //http is the server object 
+
+--> Sabse pahle http server create karenge 
+ const http = require('http');
+const server = http.createServer(app); // ye server listen krega port ko
+
+--> ab socket.io ko reuire krenge 
+const io = require('socket.io')(server); // ye socket.io ko server se connect krega
+
+
+
+
+ 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/script.js" defer></script>
+</head>
+<body class=" w-screen h-screen bg-gray-200">
+    <div id="chat-container" class="max-w-screen-xl bg-white mx-auto mt-[10vh]  rounded-lg px-3 py-2 shadow-lg flex flex-col h-[80vh] hidden">
+        <div class="upper w-full  bg-gray-200 py-2 px-1 rounded-lg flex justify-between items-center ">
+            <h1 class="text-xl font-semibold">Chats</h1>
+            <p class="text-sm font-light italic" id="typing"></p>
+            <div class="chat-members">
+                <select name="member" id="chat-members">
+                    <% chatMembers.forEach(function(member) { %>
+                        <option value="<%= member %>"><%= member %></option>
+                    <% }); %>
+                </select>
+            </div>
+        </div>
+
+        <div id="message-list" class="flex-grow p-4 overflow-y-auto py-2 w-full flex flex-col border-b border-gray-300 gap-2"></div>
+        <form id="message-form" class="flex p-2">
+            <input id="message" type="text" placeholder="Type a message..." autocomplete="off" required class="flex-grow p-2 border rounded-lg focus:outline-none focus:border-blue-500"/>
+            <input type="submit" value="Send" class="ml-2 p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+        </form>
+    </div>
+    <div class="homePage  mx-auto w-fit h-screen flex items-center flex-col gap-20 justify-center">
+        <h1 class="text-6xl font-semibold capitalize">Chatting App</h1>
+        <form id="mainForm" class="w-full shadow-md rounded-xl border-2 h-fit py-10 px-10 bg-white">
+            <h2 class="text-md font-semibold my-2">Enter Your Name</h2>
+            <input type="text" placeholder="Enter your Name" id="name" required class="px-3 py-2 rounded-xl bg-gray-200"/>
+            <input type="submit" value="Start Chat" class="px-3 py-2 bg-blue-500 cursor-pointer rounded-xl text-white hover:bg-blue-700"/>
+        </form>
+    </div>
+</body>
+</html>
